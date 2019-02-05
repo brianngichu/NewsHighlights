@@ -13,20 +13,20 @@ sources_url=app.config['SOURCES_BASE_URL']
 everything_url=app.config['EVERYTHING_BASE_URL']
 
 
-def get_source(category):
+def get_sources(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_source_url = base_url.format(category,api_key)
+    get_sources_url = sources_url.format(category,api_key)
 
-    with urllib.request.urlopen(get_source_url) as url:
-        get_source_data = url.read()
-        get_source_response = json.loads(get_source_data)
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_sources_data = url.read()
+        get_sources_response = json.loads(get_sources_data)
 
         source_results = None
 
-        if get_source_response['sources']:
-            source_results_list = get_source_response['sources']
+        if get_sources_response['sources']:
+            source_results_list = get_sources_response['sources']
             source_results = process_results(source_results_list)
 
 
@@ -46,7 +46,7 @@ def process_results(source_list):
     source_results = []
     for source_item in source_list:
         id = source_item.get('id')
-        name = source_item.get('title')
+        name = source_item.get('name')
         description = source_item.get('description')
         url = source_item.get('url')
 
@@ -83,7 +83,7 @@ def process_articles(articles_list):
 
     Args:
         articles_list: A list of dictionaries that contain article details
-        
+
     Returns :
         articles_results: A list of article objects
     '''

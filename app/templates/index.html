@@ -9,6 +9,20 @@
     {% endif %}
   </head>
   <body>
+    <!-- general -->
+    <h3>General</h3>
+    <ul>
+      {%  for general_source in general %}
+      <li>{{general_source.name}}</li>
+      {% endfor %}
+    </ul>
+    <!-- entertainment -->
+    <h3>Entertainment</h3>
+    <ul>
+      {%  for entertainment_source in entertainment %}
+      <li>{{entertainment_source.name}}</li>
+      {% endfor %}
+    </ul>
 
   </body>
 </html>
