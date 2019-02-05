@@ -97,7 +97,7 @@ def process_articles(articles_list):
 
 
         if urlToImage:
-            articles_object = Article(title, description, url, urlToImage)
+            articles_object = Articles(title, description, url, urlToImage)
             articles_results.append(articles_object)
 
     return articles_results
