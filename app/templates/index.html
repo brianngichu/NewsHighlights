@@ -1,15 +1,7 @@
+{% extends 'base.html'%}
 {%import 'macros.html' as macro%}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    {% if title %}
-    <title> {{ title }} </title>
-    {% else %}
-    <title>Get the latest news</title>
-    {% endif %}
-  </head>
-  <body>
+<!-- Content block -->
+{% block content%}
     <!-- general -->
     <h3>General</h3>
     <ul>
@@ -36,5 +28,4 @@
       {{macro.displaySourceList(sports)}}
     </ul>
 
-  </body>
-</html>
+{% endblock%}
