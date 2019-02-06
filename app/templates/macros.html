@@ -1,11 +1,17 @@
-{% macro displaySourceList(source_list) %}
+
+
+ {% macro displaySourceList(source_list) %}
 
     {% for source in source_list %}
-    <a href="{{source.url}}" target="_blank">
-
-        <h4>{{ source.name}}</h4>
-        <p>{{source.description|truncate(150)}}</p>
-        <a href="/articles/{{source.id}}">View Articles>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="panel" style="border: 1px solid #000;">
+          <div class="panel-heading" style="background-color:blue; color: #fff; font-size: 18px;">{{source.name}}</div>
+          <div class="panel-body" style="font-size: 16px;">
+            <p>{{source.description | truncate(150)}}</p>
+            <a href="{{source.url}}" target="_blank" class="btn" style="color: #fff; background-color: blue;">View articles</a>
+          </div>
+        </div>
+      </div>
     {% endfor %}
 
 {% endmacro %}
