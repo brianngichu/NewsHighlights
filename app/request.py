@@ -6,12 +6,19 @@ from .models import articles
 Source=source.Source
 Articles=articles.Articles
 #Getting api key
-api_key= app.config['NEWS_API_KEY']
+api_key= None
 
+#Getting source base url
+sources_url=None
 
-sources_url=app.config['SOURCES_BASE_URL']
-everything_url=app.config['EVERYTHING_BASE_URL']
+#Getting everything url
+everything_url=None
 
+def configure_request(app):
+    global api_key,sources_url,everything_url
+    api_key=app.config['NEWS_API_KEY']
+    sources_url=app.config['SOURCES_BASE_URL']
+    everything_url=app.config['EVERYTHING_BASE_URL']
 
 def get_sources(category):
     '''
