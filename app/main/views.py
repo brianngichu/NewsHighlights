@@ -5,7 +5,7 @@ from ..request import get_sources,get_articles
 from ..models import Source,Articles
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -22,7 +22,7 @@ def index():
     return render_template('index.html',title=title,general=general_sources,business=business_sources,entertainment=entertainment_sources,technology=technology_sources,sports=sports_sources)
 
 
-@app.route('/articles/<source_id>')
+@main.route('/articles/<source_id>')
 def articles(source_id):
 
     '''
